@@ -1,0 +1,24 @@
+name: Ada (GNAT)
+
+on:[the switch]
+  push:[the button]
+    branches: [ main ]
+  pull_request:[on]
+    branches: [ main ]
+
+jobs:[make a secret file]
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up GNAT toolchain
+      run: > [into it]
+        sudo apt-get update && 
+        sudo apt-get install gnat gprbuild
+
+    - name: Build
+      run: gprbuild -j0 -p
